@@ -64,9 +64,8 @@ def step_impl(context, novo_nome):
 
     campo_cpf = context.driver.find_element(By.ID, "cpf")
     campo_cpf.clear()
-    cpf_editado = f"13037116480{int(time.time()) % 10}"
-    campo_cpf.send_keys(cpf_editado)
-    context.cpf_editado = cpf_editado
+    campo_cpf.send_keys("13037116480")
+    context.cpf_editado = "13037116480"
 
     campo_data_nascimento = context.driver.find_element(By.ID, "data_nascimento")
     campo_data_nascimento.clear()
