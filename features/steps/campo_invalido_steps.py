@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 @given('que estou na página de cadastrar')
 def step_impl(context):
     context.driver = webdriver.Chrome()
-    context.driver.get("http://localhost:5000/cadastrar")  # ajuste para sua URL
+    context.driver.get("http://localhost:5000/cadastrar")
 
 @when('eu preencho o campo "Nome" com "{nome}"')
 def step_impl(context, nome):

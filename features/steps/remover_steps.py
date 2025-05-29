@@ -28,15 +28,12 @@ def step_impl(context):
 
 @when('eu crio e depois clico no botão de remover da pessoa')
 def step_impl(context):
-    # Criar pessoa
     nome_criado = criar_pessoa(context.driver, "PessoaRemover")
     context.nome_criado = nome_criado
 
-    # Voltar para listagem
     context.driver.get("http://localhost:5000/listar")
     time.sleep(1)
 
-    # Procurar e remover a pessoa criada
     rows = context.driver.find_elements(By.TAG_NAME, "tr")
     for row in rows:
         if nome_criado in row.text:

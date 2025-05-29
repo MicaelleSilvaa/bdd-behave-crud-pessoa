@@ -1,4 +1,4 @@
-Feature: Validação de CPF inválido
+Feature: Cadastro de pessoa - Validação de CPF inválido
 
   Scenario: Inserir um CPF inválido no formulário de cadastro
     Given que estou na página de cadastro
