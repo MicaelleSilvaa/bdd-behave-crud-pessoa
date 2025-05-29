@@ -1,0 +1,23 @@
+from selenium.webdriver.common.by import By
+import time
+
+def cadastrar_pessoa(driver, nome, sobrenome, cpf, data_nascimento):
+    driver.get("http://localhost:5000/cadastrar")
+    driver.find_element(By.ID, "nome").send_keys(nome)
+    driver.find_element(By.ID, "sobrenome").send_keys(sobrenome)
+    driver.find_element(By.ID, "cpf").send_keys(cpf)
+    driver.find_element(By.ID, "data_nascimento").send_keys(data_nascimento)
+    driver.find_element(By.TAG_NAME, "button").click()
+    time.sleep(1)
+
+
+@when('eu cadastro a pessoa com nome "{nome}", sobrenome "{sobrenome}", CPF "{cpf}", data de nascimento "{data}"')
+def step_impl(context, nome, sobrenome, cpf, data):
+    cadastrar_pessoa(context.driver, nome, sobrenome, cpf, data)
+    context.nome_teste = nome
+
+Justificativa para não realizar a refatoração do código de cadastro:
+Embora a criação de uma função reutilizável para o processo de cadastro, como cadastrar_pessoa, seja uma prática recomendada para reduzir a duplicação de código e facilitar a manutenção, optei por não realizar essa alteração neste momento.
+Isso porque o trabalho já foi concluído com os testes independentes funcionando corretamente, e a refatoração exigiria mudanças significativas em vários arquivos e cenários. Implementar essa modificação agora poderia causar retrabalho desnecessário, além do risco de introduzir novos erros ou instabilidades no projeto já finalizado.
+Dessa forma, priorizei a estabilidade e a integridade dos testes já desenvolvidos, considerando que a refatoração, embora benéfica a longo prazo, não é imprescindível para os objetivos atuais do projeto.
+
